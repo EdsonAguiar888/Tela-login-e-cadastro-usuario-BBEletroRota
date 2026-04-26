@@ -1,0 +1,65 @@
+{
+  "usuarios": [
+    {
+      "nome": "Edson Aguiar",
+      "email": "edson@adfklasd.com",
+      "senha": "12345",
+      "id": "3SNB-TMA59Y"
+    },
+    {
+      "nome": "eds",
+      "email": "edson@ed.com",
+      "senha": "123",
+      "id": "OGIKC9ih3gI"
+    },
+    {
+      "nome": "jose",
+      "email": "jose@jose.com",
+      "senha": "12345",
+      "id": "seqb7rG0oXM"
+    },
+    {
+      "nome": "paulo",
+      "email": "paulo@paulo.com",
+      "senha": "123",
+      "id": "m8uNPEHKc58"
+    },
+    {
+      "nome": "maria maria",
+      "email": "maria@maria.com",
+      "senha": "12345",
+      "id": "liwqCHJDPX4"
+    },
+    {
+      "nome": "evencio",
+      "email": "evencio@evencio.com",
+      "senha": "5555",
+      "id": "HT2aAxEW9Wc"
+    },
+    {
+      "nome": "123EDW",
+      "email": "12345@email.com",
+      "senha": "123",
+      "id": "9acmwZSwBoE"
+    },
+    {
+      "nome": "2",
+      "email": "2@2.com",
+      "senha": "12345",
+      "id": "yFDYomrxaEg"
+    },
+    {
+      "nome": "1",
+      "email": "1@1.com",
+      "senha": "12345",
+      "id": "cPu6kVWv_Rs"
+    },
+    {
+      "nome": "3",
+      "email": "3@3.com",
+      "senha": "12345",
+      "id": "Mw6WttWRGHU"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

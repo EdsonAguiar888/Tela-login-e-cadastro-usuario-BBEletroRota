@@ -1,0 +1,114 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import "/styleLogin.css";
+//import '../../../LOGIN/styleLogin.css';
+
+
+export default function Auth({ onLoginSuccess }) {
+  const navigate = useNavigate(); // Certifique-se de que está dentro da função
+  const [isLogin, setIsLogin] = useState(true);
+  const [formData, setFormData] = useState({ nome: '', email: '', senha: '' });
+  const [mensagem, setMensagem] = useState({ texto: '', tipo: '' });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setMensagem({ texto: 'Validando...', tipo: '' });
+
+    try {
+      if (isLogin) {
+        const resp = await fetch('http://localhost:3000/usuarios');
+        const usuarios = await resp.json();
+
+        const usuarioEncontrado = usuarios.find(u => 
+          u.email.toLowerCase().trim() === formData.email.toLowerCase().trim() && 
+          u.senha === formData.senha
+        );
+
+        if (usuarioEncontrado) {
+          // A ORDEM AQUI É CRUCIAL:
+          setMensagem({ texto: 'Sucesso!', tipo: 'success' });
+          onLoginSuccess(usuarioEncontrado); // Atualiza o App.jsx
+          
+          // Se o navigate('/') falhar, o window.location funciona como última opção
+          setTimeout(() => {
+            navigate('/');
+          }, 500);
+        } else {
+          setMensagem({ texto: 'E-mail ou senha incorretos.', tipo: 'error' });
+        }
+      } else {
+        // Lógica de Cadastro (POST) - Mantenha como você já tinha
+        const resp = await fetch('http://localhost:3000/usuarios', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+        if (resp.ok) {
+          setMensagem({ texto: 'Criado! Faça login.', tipo: 'success' });
+          setIsLogin(true);
+        }
+      }
+    } catch (err) {
+      setMensagem({ texto: 'Erro de conexão com o servidor.', tipo: 'error' });
+    }
+  };
+
+  return (
+
+
+
+
+
+
+
+
+ <div class="overlay">
+    
+    <div div class="modal" class="login-container">
+        <div class="login-card">
+        <div className="auth-container">
+
+
+          <form onSubmit={handleSubmit} className="auth-card" id="authForm">
+
+              <h2>{isLogin ? 'Login' : 'Cadastro'}</h2>
+
+              <div class="input-group">
+                    {!isLogin && <input name="nome" placeholder="Nome" onChange={handleChange} required />}                        
+              </div>
+
+              <div class="input-group">
+                  <input name="email" type="email" placeholder="E-mail" onChange={handleChange} required />
+                        
+              </div>
+
+              <div class="input-group">
+                  <input name="senha" type="password" placeholder="Senha" onChange={handleChange} required />                        
+              </div>
+
+
+
+              <button id="btnMain" type="submit">{isLogin ? 'Entrar' : 'Criar'}</button>
+
+              <p id="btnSwitch" class="btn-secondary" onClick={() => setIsLogin(!isLogin)} style={{cursor: 'pointer', color: 'blue'}}>
+                {isLogin ? 'Criar conta' : 'Já tenho possue uma conta'}
+              </p>
+
+              {mensagem.texto && <div className={`message ${mensagem.tipo}`}>{mensagem.texto}</div>}
+
+
+          </form>
+        </div>
+    </div>
+    </div>
+  </div>
+ 
+
+    
+  );
+}

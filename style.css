@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f5f5f5;
+  width: auto;
+  height: auto;
+}
+
+
+.topbar {
+  background: #ffdf00;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 130px;
+  font-weight: bold;
+}
+
+.topbar nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #003a8f;
+}
+
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* background: linear-gradient(to right, #003a8f, #0050b3); */
+
+  background-image: url("carro.png");
+ background-size: 100% 250px;
+   background-repeat: no-repeat; 
+
+
+  max-width: 100%;
+  height: auto;   
+  display: block;
+  background-repeat: no-repeat;
+  background-position: right;
+  color: white;
+  padding: 40px;
+  width: auto;
+  height: 250px;
+  
+}
+
+.hero-text h1 {
+  font-size: 48px;
+  
+}
+
+.hero-text span {
+  color: #ffdf00;
+}
+
+.hero img {
+  height: auto;
+  width: 100%;
+  max-width: 100%;    
+  display: block;
+
+}
+
+
+
+.hero1{
+  background-color: #003a8f;
+}
+
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+  gap: 15px;
+  padding: 15px 100px;
+}
+
+.card {
+  background: linear-gradient(to bottom, #004aad, #003a8f);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 22%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+
+
+
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+
+.station {
+  padding: 10px 100px;
+}
+
+.station h2 {
+  padding: 10px 30px;
+}
+
+.station-box {
+  display: flex;
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.map {
+  width: 200px;
+  height: 150px;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+
+.info {
+  margin-left: 20px;
+}
+
+.button-logout {
+  width: 60px;
+  margin-top: 10px;
+  background: #1a73e8;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  /* background: #c3cedb; */
+  border-color: #ffdf00;
+}
+
+
+/* ============================================================ */
+
+
+
+
+                   /* Responsividade */
+
+
+/* Estilo base (Mobile First) */
+/* body { font-size: 16px; }  */
+
+
+
+
+
+
+/* Tablet */
+
+
+/* @media (min-width: 601px) {
+  .container { display: flex; }
+
+}
+
+ Multimídia Automotiva (Geralmente Landscape) 
+@media (min-width: 1025px) and (orientation: landscape) {
+  .btn-interacao { padding: 30px; font-size: 1.5rem; } 
+} 
+
+
+/* Desktop */
+/*
+ @media (min-width: 1200px) {
+  .container { max-width: 1200px; margin: 0 auto; }
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
