@@ -16,8 +16,19 @@ body {
   background: #ffdf00;
   display: flex;
   justify-content: space-between;
-  padding: 15px 130px;
+  padding: 15px 70px;
   font-weight: bold;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center
+}
+
+.topbar nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-end;
 }
 
 .topbar nav a {
@@ -35,12 +46,12 @@ body {
   /* background: linear-gradient(to right, #003a8f, #0050b3); */
 
   background-image: url("imagemCarro.png");
- background-size: 100% 250px;
-   background-repeat: no-repeat; 
+  background-size: 100% 250px;
+  background-repeat: no-repeat;
 
 
   max-width: 100%;
-  height: auto;   
+  height: auto;
   display: block;
   background-repeat: no-repeat;
   background-position: right;
@@ -48,12 +59,12 @@ body {
   padding: 40px;
   width: auto;
   height: 250px;
-  
+
 }
 
 .hero-text h1 {
   font-size: 48px;
-  
+
 }
 
 .hero-text span {
@@ -63,14 +74,14 @@ body {
 .hero img {
   height: auto;
   width: 100%;
-  max-width: 100%;    
+  max-width: 100%;
   display: block;
 
 }
 
 
 
-.hero1{
+.hero1 {
   background-color: #003a8f;
 }
 
@@ -86,7 +97,7 @@ body {
 .card {
   background: linear-gradient(to bottom, #004aad, #003a8f);
   color: white;
-  padding: 20px;
+  /* padding: 20px; */
   border-radius: 10px;
   width: 22%;
   cursor: pointer;
@@ -104,7 +115,8 @@ body {
 
 
 .station {
-  padding: 10px 100px;
+  padding: 10px ;
+  margin: 20px;
 }
 
 .station h2 {
@@ -139,10 +151,11 @@ body {
   margin-top: 10px;
   background: #1a73e8;
   border: none;
-  padding: 10px 20px;
+  padding: 10px;
   font-weight: bold;
   cursor: pointer;
   border-radius: 5px;
+  margin-left: 200px;
 }
 
 button:hover {
@@ -151,74 +164,12 @@ button:hover {
 }
 
 
-/* ============================================================ */
+.painel-mapa {
 
-
-
-
-                   /* Responsividade */
-
-
-/* Estilo base (Mobile First) */
-/* body { font-size: 16px; }  */
-
-
-
-
-
-
-/* Tablet */
-
-
-/* @media (min-width: 601px) {
-  .container { display: flex; }
-
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
 }
 
- Multimídia Automotiva (Geralmente Landscape) 
-@media (min-width: 1025px) and (orientation: landscape) {
-  .btn-interacao { padding: 30px; font-size: 1.5rem; } 
-} 
 
-
-/* Desktop */
-/*
- @media (min-width: 1200px) {
-  .container { max-width: 1200px; margin: 0 auto; }
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ============================================================ */

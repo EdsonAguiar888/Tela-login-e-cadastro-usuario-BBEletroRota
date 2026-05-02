@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import "/styleLogin.css";
 //import '../../../LOGIN/styleLogin.css';
@@ -10,6 +10,7 @@ export default function Auth({ onLoginSuccess }) {
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({ nome: '', email: '', senha: '' });
   const [mensagem, setMensagem] = useState({ texto: '', tipo: '' });
+  const location = useLocation(); 
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -98,6 +99,8 @@ export default function Auth({ onLoginSuccess }) {
               <p id="btnSwitch" class="btn-secondary" onClick={() => setIsLogin(!isLogin)} style={{cursor: 'pointer', color: 'blue'}}>
                 {isLogin ? 'Criar conta' : 'Já tenho possue uma conta'}
               </p>
+
+              {/* <p id="btnSwitch" class="btn-secondary" onClick={() => setIsLogin(!isLogin)} style={{cursor: 'pointer', color: 'blue'}}>teste </p> */}
 
               {mensagem.texto && <div className={`message ${mensagem.tipo}`}>{mensagem.texto}</div>}
 
