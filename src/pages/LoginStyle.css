@@ -10,7 +10,7 @@ body{
     width: 100%;
     height: 100vh;
     
-    background-image: url("imagemBackgroundDesfocada.png");
+    background-image: url("/src/assets/imagemBackgroundDesfocada.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     /* filter: blur(5px); */
@@ -116,3 +116,41 @@ button:hover { background-color: #1557b0; }
 .message { margin-top: 15px; font-size: 14px; min-height: 20px; }
 .error { color: #d93025; }
 .success { color: #188038; }
+
+
+.login-card{
+
+    position: relative;
+}
+
+
+.bt-irParaHome{
+    position: absolute;
+    marginTop: '10px';    
+    position : 'absolute';
+    background:' #ffdf00 ';
+    color: 'blue';
+    border: '2px solid #3814da';
+    
+    
+    position: absolute; /* Posiciona em relação ao .box */
+    top: 10px;           /* Distância do topo */
+    right: 10px;         /* Distância da direita */
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 50%;
+    background-color: #1a73e8;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+
+  .bt-irParaHome:hover {
+    background-color: #cc0000;
+}

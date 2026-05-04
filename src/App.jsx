@@ -1,13 +1,11 @@
-
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useState } from 'react';
-import Auth from './pages/Login'; 
+import Auth from './pages/Login';
 import Home from './pages/Home';
-import GerenciarUsuarios from './pages/GerenciarUsuarios'; // Importe a nova tela
+import HomeLogado from './pages/HomeLogado';
+import GerenciarUsuarios from './pages/GerenciarUsuarios';
 import EditarPerfil from './pages/EditarPerfil';
-import Navbar from './components/Navbar';
 import Layout from './components/Layout';
-
 
 function App() {
   const [usuario, setUsuario] = useState(() => {
@@ -21,27 +19,43 @@ function App() {
   };
 
   return (
-
+   
     <BrowserRouter>
-  <Routes>
-        {/* Rota de login pública */}
+      <Routes>
+
+        {/* Rota pública de login */}
         <Route 
           path="/login" 
-          element={usuario ? <Navigate to="/" /> : <Auth onLoginSuccess={handleLogin} />} 
+          element={usuario ? <Navigate to="/" replace /> : <Auth onLoginSuccess={handleLogin} />} 
         />
         
-        {/* Rotas protegidas utilizando o Layout independente */}
+        {/* Rotas estruturadas com o Layout */}
         <Route element={<Layout usuario={usuario} setUsuario={setUsuario} />}>
-          <Route path="/" element={<Home usuario={usuario} setUsuario={setUsuario} />} />
-          <Route path="/gerenciar" element={<GerenciarUsuarios />} />
-          <Route path="/editarPerfil" element={<EditarPerfil />} />
+          
+          {/* Rota Home com exibição dinâmica */}
+          <Route 
+            path="/" 
+            element={usuario ? <HomeLogado usuario={usuario} /> : <Home />} 
+          />
+          
+          {/* Rotas protegidas */}
+          <Route 
+            path="/gerenciar" 
+            element={usuario ? <GerenciarUsuarios /> : <Navigate to="/login" replace />} 
+          />
+
+          <Route 
+            path="/editarPerfil" 
+            element={usuario ? <EditarPerfil usuario={usuario} setUsuario={setUsuario} /> : <Navigate to="/login" replace />} 
+          />
+          
         </Route>
 
-        <Route path="*" element={<Navigate to="/" />} />
+        {/* Redirecionamento para rotas inexistentes */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter> 
   );
 }
 
 export default App;
-

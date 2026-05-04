@@ -38,52 +38,14 @@ body {
 }
 
 
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.img-topo{
 
-  /* background: linear-gradient(to right, #003a8f, #0050b3); */
-
-  background-image: url("imagemCarro.png");
-  background-size: 100% 250px;
-  background-repeat: no-repeat;
-
-
-  max-width: 100%;
-  height: auto;
-  display: block;
-  background-repeat: no-repeat;
-  background-position: right;
-  color: white;
-  padding: 40px;
-  width: auto;
-  height: 250px;
-
-}
-
-.hero-text h1 {
-  font-size: 48px;
-
-}
-
-.hero-text span {
-  color: #ffdf00;
-}
-
-.hero img {
-  height: auto;
+  background-image: url("/src/assets/imagemCarro.png");
   width: 100%;
-  max-width: 100%;
-  display: block;
-
+  height: 40px;
 }
 
 
-
-.hero1 {
-  background-color: #003a8f;
-}
 
 
 .cards {

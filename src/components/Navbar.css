@@ -1,0 +1,52 @@
+.btn-logout{
+   
+    text-decoration: none;
+    background:#1a73e8 ;    
+    padding: 8px 15px;
+    borderRadius: 5px;
+    cursor: pointer;
+    fontWeight: bold;
+    margin: auto;
+    width: 80px;   
+
+    color: white;
+    border: none;   
+    font-weight: bold;
+    cursor: pointer;
+    
+   
+    
+    
+    
+    }
+    
+    .btn-logout .btn-login :hover { background-color: #1557b0; }
+
+.btn-login{
+
+    text-decoration: none;
+    width: 80px;;
+    
+}
+
+a{
+
+    text-decoration: none;
+    color: white;
+    width: 250px;
+}
+
+a usuariologado{
+    width: 40px;
+    height: 15px;
+    text-align: end;
+    background: black;
+}
+
+.usuariologado-container{
+    display: flex;
+    width: 60px;
+    height: 15px;
+    text-align: end;
+    background: black;
+}

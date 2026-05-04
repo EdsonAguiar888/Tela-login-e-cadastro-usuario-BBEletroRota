@@ -1,4 +1,7 @@
+
 import { Link, useNavigate } from 'react-router-dom';
+import './Navbar.css';
+
 
 export default function Navbar({ usuario, setUsuario }) {
   const navigate = useNavigate();
@@ -6,8 +9,9 @@ export default function Navbar({ usuario, setUsuario }) {
   const handleLogout = () => {
     localStorage.removeItem('usuarioLogado');
     setUsuario(null);
-    navigate('/login');
+    navigate('/home', { replace: true });
   };
+
 
   return (
     <nav style={{
@@ -17,8 +21,10 @@ export default function Navbar({ usuario, setUsuario }) {
       display: 'flex', 
       justifyContent: 'space-between', 
       alignItems: 'center',
-      boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
+      boxShadow: '0 2px 5px rgba(0,0,0,0.1)',
+      height: '60px'
     }}>
+
       <h1 style={{ margin: 0, fontSize: '1.5rem' }}>Porto Integrador</h1>
       
       <ul style={{ display: 'flex', gap: '25px', listStyle: 'none', margin: 0, padding: 0 }}>
@@ -33,26 +39,56 @@ export default function Navbar({ usuario, setUsuario }) {
         </li>
       </ul>
       
-      <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-        {/* <span>Bem-vindo, <strong><a href="/editarPerfil">{usuario?.nome}</a></strong></span> */}
-        <Link to="/editarPerfil" style={{ color: '#2116b8', textDecoration: 'none', fontWeight: '500' }}>Bem vindo, <strong>{usuario?.nome}</strong></Link>
+      <div className='usuarioLogado-container'  style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+  
+        {usuario ? (
+          <>
+          
+
+            <Link className='usuarioLogado' to="/editarPerfil" style={{ color: '#2116b8', width: '250px;', textDecoration: 'none', fontWeight: '500' }}>Bem vindo, <strong>{usuario?.nome}</strong></Link>
         
-        <div className='botaoSair'>
-        <button 
+
+        <button className='btn-logout'>
+          <Link
           onClick={handleLogout} 
-          style={{
-            background: '#2116b8', 
-            color: '#fff', 
-            border: 'none', 
-            padding: '8px 15px', 
-            borderRadius: '4px', 
-            cursor: 'pointer',
-            fontWeight: 'bold'
-          }}
+          // style={{
+          //   background: '#1a73e8', 
+          //   color: '#fff', 
+          //   border: 'none', 
+          //   padding: '8px 15px', 
+          //   borderRadius: '5px', 
+          //   cursor: 'pointer',
+          //   fontWeight: 'bold',
+          //   margin: 'auto'
+
+          // }}
         >
           Sair
+          </Link>
         </button>
-        </div>
+
+          
+          </>
+        ) : (<button className='btn-login'>
+          <Link 
+             to="/login" 
+            // style={{
+            // background: '#1a73e8', 
+            // color: '#fff', 
+            // border: 'none', 
+            // padding: '8px 15px', 
+            // borderRadius: '5px', 
+            // cursor: 'pointer',
+            // fontWeight: 'bold',
+            // margin: 'auto'
+              
+            // }}
+          >
+            Login
+          </Link>
+          </button>
+        )}
+
       </div>
     </nav>
   );

@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-import "/styleLogin.css";
-//import '../../../LOGIN/styleLogin.css';
 
+import "./LoginStyle.css";
 
 export default function Auth({ onLoginSuccess }) {
   const navigate = useNavigate(); // Certifique-se de que está dentro da função
@@ -69,11 +68,29 @@ export default function Auth({ onLoginSuccess }) {
 
 
  <div class="overlay">
+
     
     <div div class="modal" class="login-container">
         <div class="login-card">
-        <div className="auth-container">
+        <div className="auth-container ">
+      <a className="bt-irParaHome" id="cadastro"
+        // style={{
+                  
+        //           marginTop: '10px',
+        //           top: 0,
+        //           right: 0,
+        //           //position: 'absolute',
+        //           background:' #ffdf00 ',
+        //           color: 'blue',
+        //           border: '2px solid #3814da',
+        //           width: '70px',
+        //           fontWeight: 'bold'
 
+
+        //         }}
+
+        
+          href="/home" >X</a>
 
           <form onSubmit={handleSubmit} className="auth-card" id="authForm">
 
@@ -110,8 +127,8 @@ export default function Auth({ onLoginSuccess }) {
     </div>
     </div>
   </div>
- 
-
-    
-  );
+  
+  
+  
+);
 }

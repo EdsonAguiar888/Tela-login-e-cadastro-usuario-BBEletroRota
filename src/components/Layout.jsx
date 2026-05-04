@@ -1,22 +1,32 @@
 import { Navigate, Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 
-export default function Layout({ usuario, setUsuario }) {
-  // Proteção: se não estiver logado, redireciona para o login
-  if (!usuario) {
-    return <Navigate to="/login" replace />;
-  }
+export default function Layout({ usuario, setUsuario }) { 
 
   return (
-    <div style={{width: '100%', display: 'flex', flexDirection: 'column' }}>
-      {/* Navbar aparece em todas as telas que usam este layout */}
 
-          <Navbar usuario={usuario} setUsuario={setUsuario} />
-          
-          {/* Área dinâmica onde o conteúdo das páginas será injetado */}
-          <main style={{ padding: '0px', flex: 1, backgroundColor: '#c4c4c4' }}>
+   <div style={{ 
+      width: '100%', 
+      height: '100%', 
+      display: 'flex', 
+      flexDirection: 'column',
+      backgroundColor: '#ffffff'  
+    }}>
+      
+      {/* Navbar no topo */}
+      <Navbar usuario={usuario} setUsuario={setUsuario} />
+      
+      {/* Área dinâmica que preenche o restante da tela */}
+      <main style={{ 
+        flex: 1, 
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column'
+      }}>
+
         <Outlet />
       </main>
     </div>
   );
 }
+

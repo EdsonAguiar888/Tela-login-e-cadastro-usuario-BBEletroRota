@@ -19,7 +19,7 @@
       "veiculo": {
         "marca": "chevrolet",
         "potencia": "200",
-        "bateriaAtual": "50"
+        "bateriaAtual": 90
       },
       "id": "cPu6kVWv_Rs"
     },
