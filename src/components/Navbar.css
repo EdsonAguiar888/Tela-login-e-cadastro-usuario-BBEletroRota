@@ -1,52 +1,242 @@
-.btn-logout{
-   
-    text-decoration: none;
-    background:#1a73e8 ;    
-    padding: 8px 15px;
-    borderRadius: 5px;
-    cursor: pointer;
-    fontWeight: bold;
-    margin: auto;
-    width: 80px;   
-
-    color: white;
-    border: none;   
-    font-weight: bold;
-    cursor: pointer;
-    
-   
-    
-    
-    
-    }
-    
-    .btn-logout .btn-login :hover { background-color: #1557b0; }
-
-.btn-login{
-
-    text-decoration: none;
-    width: 80px;;
-    
+:root {
+  --bb-blue: #003882;
+  --bb-blue-dark: #002a63;
+  --bb-yellow: #ffdf00;
+  --bb-yellow-hover: #e6c800;
+  --bb-white: #ffffff;
+  --bb-text-light: rgba(255,255,255,0.85);
+  --bb-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-a{
-
-    text-decoration: none;
-    color: white;
-    width: 250px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-a usuariologado{
-    width: 40px;
-    height: 15px;
-    text-align: end;
-    background: black;
+
+.bb-header {
+  width: 100%;
+  font-family: var(--bb-font);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
 }
 
-.usuariologado-container{
-    display: flex;
-    width: 60px;
-    height: 15px;
-    text-align: end;
-    background: black;
+/* ── Barra Superior ── */
+.bb-topbar {
+  background-color: var(--bb-blue);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 52px;
+  gap: 16px;
 }
+
+/* Logo */
+.bb-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+
+.bb-logo-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--bb-white);
+  letter-spacing: 0.02em;
+}
+
+.bb-logo-yellow {
+  color: var(--bb-yellow);
+}
+
+/* Navegação superior */
+.bb-topnav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  justify-content: center;
+}
+
+.bb-topnav a {
+  color: var(--bb-text-light);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.bb-topnav a:hover {
+  background-color: rgba(255,255,255,0.12);
+  color: var(--bb-yellow);
+}
+
+/* Área direita: busca + usuário */
+.bb-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* Campo de busca */
+.bb-search-form {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.bb-search-form:focus-within {
+  background: rgba(255,255,255,0.2);
+  border-color: var(--bb-yellow);
+}
+
+.bb-search-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--bb-white);
+  font-size: 0.82rem;
+  padding: 6px 12px;
+  width: 160px;
+}
+
+.bb-search-input::placeholder {
+  color: rgba(255,255,255,0.55);
+}
+
+.bb-search-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  color: var(--bb-white);
+  transition: color 0.2s;
+}
+
+.bb-search-btn:hover {
+  color: var(--bb-yellow);
+}
+
+/* Botão conta / usuário */
+.bb-account-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--bb-yellow);
+  color: var(--bb-blue-dark);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.1s;
+  border: none;
+  cursor: pointer;
+}
+
+.bb-account-btn:hover {
+  background-color: var(--bb-yellow-hover);
+  transform: translateY(-1px);
+}
+
+/* Área de usuário logado */
+.bb-user-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bb-user-area .bb-account-btn span {
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Botão de logout */
+.bb-logout-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.4);
+  color: var(--bb-white);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.bb-logout-btn:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: var(--bb-yellow);
+  color: var(--bb-yellow);
+}
+
+/* ── Barra de Navegação Principal ── */
+.bb-mainnav {
+  background-color: var(--bb-blue-dark);
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0 24px;
+  height: 38px;
+  border-top: 2px solid var(--bb-yellow);
+}
+
+.bb-mainnav a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0 14px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+
+.bb-mainnav a:hover {
+  color: var(--bb-yellow);
+  border-bottom-color: var(--bb-yellow);
+  background: rgba(255,255,255,0.05);
+}
+
+/* ── Responsivo ── */
+@media (max-width: 768px) {
+  .bb-topnav {
+    display: none;
+  }
+
+  .bb-search-input {
+    width: 100px;
+  }
+
+  .bb-mainnav {
+    overflow-x: auto;
+    gap: 0;
+  }
+
+  .bb-logo-text {
+    font-size: 1rem;
+  }
+}
+

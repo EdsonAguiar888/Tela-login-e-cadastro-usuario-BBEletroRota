@@ -1,10 +1,12 @@
-
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
 
 export default function Navbar({ usuario, setUsuario }) {
   const navigate = useNavigate();
+  const [busca, setBusca] = useState('');
+
 
   const handleLogout = () => {
     localStorage.removeItem('usuarioLogado');
@@ -12,84 +14,74 @@ export default function Navbar({ usuario, setUsuario }) {
     navigate('/home', { replace: true });
   };
 
+  const handleBusca = (e) => {
+    e.preventDefault();
+    if (busca.trim()) {
+      navigate(`/busca?q=${encodeURIComponent(busca.trim())}`);
+    }
+  };
 
-  return (
-    <nav style={{
-      padding: '15px 30px', 
-      background: '#ffdf00', 
-      color: '#2116b8', 
-      display: 'flex', 
-      justifyContent: 'space-between', 
-      alignItems: 'center',
-      boxShadow: '0 2px 5px rgba(0,0,0,0.1)',
-      height: '60px'
-    }}>
+return (
+    <header className="bb-header">   
+        {/* Barra superior */}
+        <div className="bb-topbar">
+          <div className="bb-topbar-left">
+            <Link to="/" className="bb-logo">
+                <img src="src/assets/LogoBB.png" alt="Logo do Banco do Brasil" /> 
+                <span className="bb-logo-text">
+                  BB <span className="bb-logo-yellow">EletroRota</span>
+                </span>
+            </Link>
+          </div>
 
-      <h1 style={{ margin: 0, fontSize: '1.5rem' }}>Porto Integrador</h1>
-      
-      <ul style={{ display: 'flex', gap: '25px', listStyle: 'none', margin: 0, padding: 0 }}>
-        <li>
-          <Link to="/" style={{ color: '#2116b8', textDecoration: 'none', fontWeight: '500' }}>Início</Link>
-        </li>
-        <li>
-          <Link to="/gerenciar" style={{ color: '#2116b8', textDecoration: 'none', fontWeight: '500' }}>Gerenciar Usuários</Link>
-        </li>
-        <li>
-          <Link to="#" style={{ color: '#2116b8', textDecoration: 'none', fontWeight: '500' }}>Mapas</Link>
-        </li>
-      </ul>
-      
-      <div className='usuarioLogado-container'  style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-  
-        {usuario ? (
-          <>
+          <nav className="bb-topnav">
+              <Link to="#">Para Você</Link>
+              <Link to="#">Para sua Empresa</Link>
+              <Link to="#">Agronegócios</Link>
+              <Link to="#">Setor Público</Link>
+          </nav>
+
+          <div className="bb-topbar-right">
+              <form className="bb-search-form" onSubmit={handleBusca}>
+                <input
+                  type="text"
+                  className="bb-search-input"
+                  placeholder="Busque no site"
+                  value={busca}
+                  onChange={(e) => setBusca(e.target.value)}
+                />
+                <button type="submit" className="bb-search-btn" aria-label="Buscar">
+                  <img src="src/assets/IconeLupa.png" alt="Icone de Lupa" />
+                </button>
+              </form>
           
+          {usuario ? (
+            <div className="bb-user-area">
+              <Link to="/editarPerfil" className="bb-account-btn">
+                  <span>{usuario?.nome}</span>
+              </Link>
+              <button className="bb-logout-btn" onClick={handleLogout}>
+                  Sair
+              </button>
+            </div>
+          ) : (
+              <Link to="/login" className="bb-account-btn">
+                  <img src="src/assets/IconeUsuario.png" alt="Icone Usuário" />Acesse sua conta
+              </Link>
+            )}
+          </div>
+        </div>
 
-            <Link className='usuarioLogado' to="/editarPerfil" style={{ color: '#2116b8', width: '250px;', textDecoration: 'none', fontWeight: '500' }}>Bem vindo, <strong>{usuario?.nome}</strong></Link>
-        
+        {/* Barra de navegação secundária */}
+        <nav className="bb-mainnav">
+            <Link to="/">Início</Link>
+            <Link to="/gerenciar">Gerenciar Usuários</Link>
+            <Link to="/mapas">Mapas</Link>
+            <Link to="#">Atendimento</Link>
+            <Link to="#">Sobre</Link>
+            <Link to="#">Busca</Link>
+        </nav>
 
-        <button className='btn-logout'>
-          <Link
-          onClick={handleLogout} 
-          // style={{
-          //   background: '#1a73e8', 
-          //   color: '#fff', 
-          //   border: 'none', 
-          //   padding: '8px 15px', 
-          //   borderRadius: '5px', 
-          //   cursor: 'pointer',
-          //   fontWeight: 'bold',
-          //   margin: 'auto'
-
-          // }}
-        >
-          Sair
-          </Link>
-        </button>
-
-          
-          </>
-        ) : (<button className='btn-login'>
-          <Link 
-             to="/login" 
-            // style={{
-            // background: '#1a73e8', 
-            // color: '#fff', 
-            // border: 'none', 
-            // padding: '8px 15px', 
-            // borderRadius: '5px', 
-            // cursor: 'pointer',
-            // fontWeight: 'bold',
-            // margin: 'auto'
-              
-            // }}
-          >
-            Login
-          </Link>
-          </button>
-        )}
-
-      </div>
-    </nav>
+    </header>
   );
 }
