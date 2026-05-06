@@ -110,19 +110,21 @@
 .bb-search-form {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   background: transparent;
-  border: 1px solid #ccc;
-  padding: 6px 12px;
+  border: none;
+  padding: 0;
   /* overflow: hidden; */
   cursor: pointer;
   flex-direction: row-reverse;
-  transition: border-color 0.2s,
+  transition: border-color 0.2s;
 }
 
-.bb-search-form:houver{
+.bb-search-form:hover{
   background: transparent;
 }
+
+
 
 .bb-search-btn {
   background: transparent;
@@ -136,22 +138,23 @@
 .bb-search-btn img {
   height: 30px;
   width: 30px;
+  filter: brightness(0) saturate(100%) invert(15%) sepia(50%) saturate(3000%) hue-rotate(200deg) brightness(95%) contrast(105%);
 }
 
 .bb-search-label {
   font-size: 0.82rem;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--bb-blue);
   white-space: nowrap;
 }
 
 .bb-search-btn img {
-  height: 16px;
+  height: 100px;
   width: auto;
   filter: brightness(0); /* deixa o ícone preto/azul visível sobre o fundo amarelo */
 }
 
-/* .bb-search-input {
+ .bb-search-input {
   background: transparent;
   border: none;
   outline: none;
@@ -162,7 +165,7 @@
 }
 
 .bb-search-input::placeholder {
-  color: rgba(255,255,255,0.55);
+  color: var(--bb-blue-dark);
 }
 
 .bb-search-btn {
@@ -171,13 +174,13 @@
   cursor: pointer;
   padding: 6px 10px;
   font-size: 0.9rem;
-  color: var(--bb-white);
+  color: var(--bb-blue-dark);
   transition: color 0.2s;
 }
 
 .bb-search-btn:hover {
-  color: var(--bb-yellow);
-} */
+  color: var(--bb-blue);
+} 
 
 /* Botão conta / usuário */
 .bb-account-btn {
