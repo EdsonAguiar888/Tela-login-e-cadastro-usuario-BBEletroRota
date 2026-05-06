@@ -5,18 +5,13 @@
   --bb-yellow-hover: #e6c800;
   --bb-white: #ffffff;
   --bb-text-light: rgba(255,255,255,0.85);
-  --bb-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --bb-font: Arial, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-body {
-  overflow-x: hidden;
-  width: 100%;
 }
 
 html, body, #root {
@@ -44,6 +39,7 @@ html, body, #root {
   top: 0;
   z-index: 1000;
   width: 100%;
+  border: none;
 }
 
 /* ── Barra Superior ── */
@@ -52,14 +48,14 @@ html, body, #root {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 35px;
-  height: 52px;
+  padding: 15px 24px;
+  height: auto;
   gap: 16px;
   width: 100%;
-
   margin: 0; 
   position: relative;
   z-index: 10;
+  border: none;
 }
 
 /* Área direita: busca + usuário */
@@ -69,8 +65,6 @@ html, body, #root {
   gap: 15px;
   flex-shrink: wrap;
 }
-
-
 
 /* Logo */
 .bb-logo {
@@ -104,6 +98,8 @@ html, body, #root {
   gap: 6px;
   flex: 1;
   justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .bb-topnav a {
@@ -132,7 +128,7 @@ html, body, #root {
   background: transparent;
   border: 1px solid #003399;;
   padding: 0 15px;
-  /* overflow: hidden; */
+  overflow: hidden;
   cursor: pointer;
   flex-direction: row-reverse;
   border-radius: 50px; 
@@ -202,11 +198,14 @@ html, body, #root {
 .bb-search-btn {
   background: transparent;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
   padding: 6px 10px;
   font-size: 0.9rem;
   color: var(--bb-blue-dark);
   transition: color 0.2s;
+  max-width: 300px;
+  width: 100%;
 }
 
 .bb-search-btn:hover {
@@ -330,72 +329,110 @@ html, body, #root {
 
   /* para tabletes */
 
+  html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
   .bb-topbar {
     flex-wrap: wrap;
     justify-content: center;
     gap: 12px;
-    height: auto;
-    padding: 10px;
+    height: auto !important;
+    padding: 15px 24px ;
     display: flex;
     width: 100%;
-    margin-top: 10px;
-    flex-direction: column;
+    margin-top: 0px;
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+    border: none;
   }
-  .bb-topnav {
+  .bb-logo {
     justify-content: center;
     width: 100%;
-    display: none;
-  }
-
-  .bb-topbar-right {
-    justify-content: center;
-    width: 100%;
-  }
-
-  .bb-topnav {
-    display: flex;
-    overflow-x: auto;
-  }
-  
-  .container-cards {
-    grid-template-columns: repeat(2, 1fr); 
-  }
-
-  .bb-search-form {
-    max-width: 100%;
-  }
-
-  .bb-search-input {
-    width: 120px;
-  }
-
-  .bb-mainnav {
-    overflow-x: auto;
-    gap: 0;
+    margin-bottom: 10px;
   }
 
   .bb-logo-text {
     font-size: 1rem;
   }
+  .bb-topnav {
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+
+  .bb-topbar-right {
+    justify-content: center;
+    width: 100%;
+    flex-direction: column-reverse;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .bb-account-btn{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+  }
+
+  .bb-search-form, 
+  .bb-account-btn {
+    width: 100% !important;
+    max-width: 320px !important; 
+    min-width: 0 !important;     
+    margin: 0 auto !important;
+  }
+
+  .bb-topnav {
+    display: flex;
+    overflow-x: auto;
+  }
+
+  .bb-search-form {
+    max-width: 100%;
+    position: relative;
+  }
+
+  .bb-search-input {
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .bb-search-lupa {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .bb-mainnav {
+    overflow-x: auto;
+    gap: 0;
+    justify-content: flex-start;
+    padding: 0 10px;
+  }
 }
 
 /* --- ADAPTAÇÃO PARA NOTEBOOKS E DESKTOPS (min-width: 1024px) --- */
 @media (min-width: 1024px) {
-  .container-cards {
-    grid-template-columns: repeat(4, 1fr); /* 4 cards na mesma linha */
-  }
 
-  .main-content {
-    flex-direction: row; 
-    justify-content: space-between;
-  }
-
-  .estacao-recomendada, .painel-principal {
-    flex: 1; /* Divide o espaço igualmente */
-  }
+  html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
   .bb-topbar {
     flex-wrap: nowrap; 
     justify-content: space-between;
+    padding: 0 24px;
+    height: 70px;
   }
 }
