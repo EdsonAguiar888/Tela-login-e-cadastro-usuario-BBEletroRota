@@ -3,6 +3,13 @@ Plataforma de Localização e Planejamento de carregamento para Carros Elétrico
 
 ## Necessario para rodar o sistema:
 
+Este projeto utiliza componentes do Material UI e ícones do Material UI Icons.
+
+Para instalar as dependências, execute:
+
+``` json
+npm install @mui/material @mui/icons-material @emotion/react @emotion/styled
+````
 Abre o cmd e digita o npx para subir o servidor e "CTRL + c" para derrubar o servidor. 
 
 ``` json
