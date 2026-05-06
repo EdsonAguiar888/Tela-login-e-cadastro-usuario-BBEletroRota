@@ -52,10 +52,14 @@ html, body, #root {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 35px;
   height: 52px;
   gap: 16px;
   width: 100%;
+
+  margin: 0; 
+  position: relative;
+  z-index: 10;
 }
 
 /* Área direita: busca + usuário */
@@ -201,8 +205,9 @@ html, body, #root {
   color: var(--bb-blue-dark);
   font-size: 0.82rem;
   padding: 6px 12px;
-  width: 160px;
+  width: 100%;
   flex: 1;
+  transition: none !important;
 }
 
 .bb-search-input::placeholder {
