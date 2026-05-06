@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
+import SearchIcon from '@mui/icons-material/Search';
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 
 
 export default function Navbar({ usuario, setUsuario }) {
@@ -43,16 +45,14 @@ return (
 
           <div className="bb-topbar-right">
               <form className="bb-search-form" onSubmit={handleBusca}>
-                <input
-                  type="text"
-                  className="bb-search-input"
-                  placeholder="Busque no site"
-                  value={busca}
-                  onChange={(e) => setBusca(e.target.value)}
-                />
-                <button type="submit" className="bb-search-btn" aria-label="Buscar">
-                  <img src="src/assets/IconeLupa.png" alt="Icone de Lupa" />
-                </button>
+                  <input
+                    type="text"
+                    className="bb-search-input"
+                    placeholder="Busque no site"
+                    value={busca}
+                    onChange={(e) => setBusca(e.target.value)}
+                  />
+                  <SearchIcon className='bb-search-icon'/>
               </form>
           
           {usuario ? (
@@ -66,7 +66,8 @@ return (
             </div>
           ) : (
               <Link to="/login" className="bb-account-btn">
-                  <img src="src/assets/IconeUsuario.png" alt="Icone Usuário" />Acesse sua conta
+                  <PermIdentityIcon />
+                  <span>Acessar a sua conta</span>
               </Link>
             )}
           </div>
