@@ -140,21 +140,6 @@ html, body, #root {
 }
 
 
-.bb-search-form:hover{
-  background: transparent;
-  display: flex;
-  align-items: center;
-  border: 1px solid var(--bb-blue);
-  border-radius: 20px;
-  padding: 0 10px;
-  gap: 5px;
-  height: 34px;
-  min-width: 180px;
-  width: 100%;
-  max-width: 250px;
-
-}
-
 .bb-search-lupa {
   display: flex;
   align-items: center;
@@ -207,7 +192,6 @@ html, body, #root {
   padding: 6px 12px;
   width: 100%;
   flex: 1;
-  transition: none !important;
 }
 
 .bb-search-input::placeholder {
@@ -328,6 +312,19 @@ html, body, #root {
   background: rgba(255,255,255,0.05);
 }
 
+.container-cards {
+  display: grid;
+  grid-template-columns: 1fr; /* No celular, 1 card por linha */
+  gap: 15px;
+  padding: 20px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column; /* No celular, conteúdo empilha */
+  gap: 20px;
+}
+
 /* ── Responsivo ── */
 @media (max-width: 768px) {
 
@@ -342,6 +339,7 @@ html, body, #root {
     display: flex;
     width: 100%;
     margin-top: 10px;
+    flex-direction: column;
   }
   .bb-topnav {
     justify-content: center;
@@ -352,6 +350,15 @@ html, body, #root {
   .bb-topbar-right {
     justify-content: center;
     width: 100%;
+  }
+
+  .bb-topnav {
+    display: flex;
+    overflow-x: auto;
+  }
+  
+  .container-cards {
+    grid-template-columns: repeat(2, 1fr); 
   }
 
   .bb-search-form {
@@ -372,3 +379,23 @@ html, body, #root {
   }
 }
 
+/* --- ADAPTAÇÃO PARA NOTEBOOKS E DESKTOPS (min-width: 1024px) --- */
+@media (min-width: 1024px) {
+  .container-cards {
+    grid-template-columns: repeat(4, 1fr); /* 4 cards na mesma linha */
+  }
+
+  .main-content {
+    flex-direction: row; 
+    justify-content: space-between;
+  }
+
+  .estacao-recomendada, .painel-principal {
+    flex: 1; /* Divide o espaço igualmente */
+  }
+
+  .bb-topbar {
+    flex-wrap: nowrap; 
+    justify-content: space-between;
+  }
+}
