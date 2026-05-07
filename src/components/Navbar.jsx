@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 import SearchIcon from '@mui/icons-material/Search';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+import LogoBB from '../assets/LogoBB.png';
 
 
 export default function Navbar({ usuario, setUsuario }) {
@@ -29,7 +30,7 @@ return (
         <div className="bb-topbar">
           <div className="bb-topbar-left">
             <Link to="/" className="bb-logo">
-                <img src="src/assets/LogoBB.png" alt="Logo do Banco do Brasil" /> 
+                <img src={LogoBB} alt="Logo do Banco do Brasil" /> 
                 <span className="bb-logo-text">
                   BB <span className="bb-logo-yellow">EletroRota</span>
                 </span>

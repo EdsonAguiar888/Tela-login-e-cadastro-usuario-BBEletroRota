@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
@@ -31,8 +30,9 @@ export default function Home({ usuario, setUsuario }) {
             maxWidth: '100%',
             width: '100%',
             height: 'auto',
-
-            boxShadow: '0 4px 8px rgba(0,0,0,0.1)'
+            display: 'block',
+            imageRendering: 'high-quality',
+            objectFit: 'cover'
           }}
         />
       </div>
@@ -128,7 +128,3 @@ export default function Home({ usuario, setUsuario }) {
     </div>
   );
 }
-
-
-
-

@@ -48,7 +48,7 @@ html, body, #root {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 24px;
+  padding: 22px 24px;
   height: auto;
   gap: 16px;
   width: 100%;
@@ -56,6 +56,16 @@ html, body, #root {
   position: relative;
   z-index: 10;
   border: none;
+  letter-spacing: -0.5px;
+  font-family: var(--bb-font);
+  font-weight: 700;
+}
+
+.topbar nav a {
+  font-size: 14px; 
+  font-weight: 700;
+  text-decoration: none;
+  margin-left: 25px;
 }
 
 /* Área direita: busca + usuário */
@@ -63,7 +73,8 @@ html, body, #root {
   display: flex;
   align-items: center;
   gap: 15px;
-  flex-shrink: wrap;
+  flex-shrink: 0;
+  flex-wrap: wrap;
 }
 
 /* Logo */
@@ -78,6 +89,7 @@ html, body, #root {
 .bb-logo img {
   height: 60px;
   width: auto;
+  display: block;
 }
 
 .bb-logo-text {
@@ -85,10 +97,12 @@ html, body, #root {
   font-weight: 800;
   color: var(--bb-blue);
   letter-spacing: 0.02em;
+  font-family: var(--bb-font);
 }
 
 .bb-logo-yellow {
   color: var(--bb-blue);
+  font-family: var(--bb-font);
 }
 
 /* Navegação superior */
@@ -126,13 +140,14 @@ html, body, #root {
   width: 250px;
   min-width: 250px;
   background: transparent;
-  border: 1px solid #003399;;
+  border: 1px solid #003399;
   padding: 0 15px;
   overflow: hidden;
   cursor: pointer;
   flex-direction: row-reverse;
   border-radius: 50px; 
   transition: none !important;
+  justify-content: flex-start;
 }
 
 
@@ -158,6 +173,13 @@ html, body, #root {
   padding: 0;
   display: flex;
   align-items: center;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  color: var(--bb-blue-dark);
+  transition: color 0.2s;
+  max-width: 300px;
+  width: 100%;
 }
 
 .bb-search-btn img {
@@ -171,12 +193,6 @@ html, body, #root {
   font-weight: 500;
   color: var(--bb-blue);
   white-space: nowrap;
-}
-
-.bb-search-btn img {
-  height: 100px;
-  width: auto;
-  filter: brightness(0); 
 }
 
  .bb-search-input {
@@ -193,19 +209,6 @@ html, body, #root {
 .bb-search-input::placeholder {
   color: var(--bb-blue-dark);
   opacity: 0.7;
-}
-
-.bb-search-btn {
-  background: transparent;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  padding: 6px 10px;
-  font-size: 0.9rem;
-  color: var(--bb-blue-dark);
-  transition: color 0.2s;
-  max-width: 300px;
-  width: 100%;
 }
 
 .bb-search-btn:hover {
@@ -225,22 +228,18 @@ html, body, #root {
   padding: 8px 16px;
   border-radius: 4px;
   white-space: nowrap;
-  transition: background 0.2s;
   border: none;
   cursor: pointer;
-
   flex-shrink: 0;         
   white-space: nowrap;    
   transition: none !important;
 }
-
 
 .bb-account-btn img {
   height: 30px;
   width: auto;
   filter: brightness(0) invert(1);
 }
-
 
 .bb-account-btn:hover {
   background-color: var(--bb-blue-dark);
@@ -280,27 +279,31 @@ html, body, #root {
   color: var(--bb-yellow);
 }
 
-/* ── Barra de Navegação Principal ── */
+/* ── Barra de Navegação Principal AZUL ── */
 .bb-mainnav {
   background-color: var(--bb-blue-dark);
   display: flex;
   align-items: center;
   gap: 0;
   padding: 0 24px;
-  height: 38px;
+  height: 55px;
   border-top: 2px solid var(--bb-yellow);
+  overflow-x: auto;
+  justify-content: flex-start;
+  margin-bottom: -1px ; /* faz a encaixar por cima do banner */
+  border-bottom: none;
 }
 
 .bb-mainnav a {
   color: rgba(255,255,255,0.8);
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 500;
   padding: 0 14px;
   height: 100%;
   display: flex;
   align-items: center;
-  border-bottom: 2px solid transparent;
+  border-bottom: 3px solid transparent;
   transition: color 0.2s, border-color 0.2s, background 0.2s;
   white-space: nowrap;
 }
@@ -309,19 +312,6 @@ html, body, #root {
   color: var(--bb-yellow);
   border-bottom-color: var(--bb-yellow);
   background: rgba(255,255,255,0.05);
-}
-
-.container-cards {
-  display: grid;
-  grid-template-columns: 1fr; /* No celular, 1 card por linha */
-  gap: 15px;
-  padding: 20px;
-}
-
-.main-content {
-  display: flex;
-  flex-direction: column; /* No celular, conteúdo empilha */
-  gap: 20px;
 }
 
 /* ── Responsivo ── */
@@ -339,7 +329,7 @@ html, body, #root {
     justify-content: center;
     gap: 12px;
     height: auto !important;
-    padding: 15px 24px ;
+    padding: 20px ;
     display: flex;
     width: 100%;
     margin-top: 0px;
@@ -351,7 +341,7 @@ html, body, #root {
   .bb-logo {
     justify-content: center;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
 
   .bb-logo-text {
@@ -384,7 +374,7 @@ html, body, #root {
   .bb-search-form, 
   .bb-account-btn {
     width: 100% !important;
-    max-width: 320px !important; 
+    max-width: 300px !important; 
     min-width: 0 !important;     
     margin: 0 auto !important;
   }
@@ -395,30 +385,37 @@ html, body, #root {
   }
 
   .bb-search-form {
+    display: flex;
     max-width: 100%;
     position: relative;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    align-items: center;
+    gap: 8px
   }
 
   .bb-search-input {
     width: 100%;
     font-size: 16px;
     text-align: center;
+    flex: 0 1 auto;
+
   }
 
   .bb-search-lupa {
-    position: absolute;
+    /* position: absolute; */
     left: 15px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: none;
     pointer-events: none;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    position: static;
+    flex-shrink: 0;
   }
 
-  .bb-mainnav {
-    overflow-x: auto;
-    gap: 0;
-    justify-content: flex-start;
-    padding: 0 10px;
-  }
 }
 
 /* --- ADAPTAÇÃO PARA NOTEBOOKS E DESKTOPS (min-width: 1024px) --- */
