@@ -14,15 +14,20 @@
     font-weight: bold;
     cursor: pointer;
     
-   
-    
-    
     
     }
     
     .btn-logout .btn-login :hover { background-color: #1557b0; }
 
 .btn-login{
+     text-decoration: none;
+    background:#1a73e8 ;    
+    padding: 8px 15px;
+    borderRadius: 5px;
+    cursor: pointer;
+    fontWeight: bold;
+    margin: auto;
+    width: 80px;  
 
     text-decoration: none;
     width: 80px;;

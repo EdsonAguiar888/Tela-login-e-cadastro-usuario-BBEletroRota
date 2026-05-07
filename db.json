@@ -47,9 +47,26 @@
       "veiculo": {
         "marca": "Corola",
         "potencia": "300",
-        "bateriaAtual": "100"
+        "bateriaAtual": "92"
       },
       "id": "OwBXSvYnaac"
+    },
+    {
+      "nome": "Heitor Autusto dos Santos Aguiar",
+      "email": "heitor@heitor.com",
+      "senha": "12345",
+      "id": "700PjTyYYE8",
+      "veiculo": {
+        "marca": "byd",
+        "potencia": "300",
+        "bateriaAtual": "60"
+      }
+    },
+    {
+      "nome": "heitor",
+      "email": "heitor@heitor.com",
+      "senha": "12345",
+      "id": "Wn4AxNnPyhg"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
