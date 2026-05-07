@@ -25,7 +25,7 @@ export default function Navbar({ usuario, setUsuario }) {
       height: '60px'
     }}>
 
-      <h1 style={{ margin: 0, fontSize: '1.5rem' }}>Porto Integrador</h1>
+      <h1 style={{ margin: 0, fontSize: '1.5rem' }}>BB EletroRota</h1>
       
       <ul style={{ display: 'flex', gap: '25px', listStyle: 'none', margin: 0, padding: 0 }}>
         <li>

@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
-import '../pages/Home.css';
+import './Home.css';
 import imagemCarro from '../assets/imagemCarro.png';
 
 export default function HomeLogado({ usuario, setUsuario }) {
