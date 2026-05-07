@@ -291,7 +291,7 @@ html, body, #root {
   overflow-x: auto;
   justify-content: flex-start;
   margin-bottom: -1px ; /* faz a encaixar por cima do banner */
-  border-bottom: none;
+  border-bottom: 1px solid var(--bb-yellow);
 }
 
 .bb-mainnav a {
