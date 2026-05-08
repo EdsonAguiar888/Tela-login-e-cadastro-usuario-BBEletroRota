@@ -2,14 +2,10 @@ const jsonServer = require('json-server');
 const server = jsonServer.create();
 const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults();
+const port = process.env.PORT || 3000;
 
 server.use(middlewares);
-
-// Adicione esta regra para reescrever as rotas (opcional)
-server.use(jsonServer.rewriter({
-  '/api/*': '/$1'
-}));
-
 server.use(router);
-
-module.exports = server;
+server.listen(port, () => {
+  console.log(`JSON Server está rodando na porta ${port}`);
+});
